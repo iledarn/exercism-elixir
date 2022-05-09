@@ -4,7 +4,12 @@ defmodule LibraryFees do
   end
 
   def before_noon?(datetime) do
-    # Please implement the before_noon?/1 function
+    datetime_noon = NaiveDateTime.new!(datetime.year, datetime.month, datetime.day, 12, 0, 0)
+
+    case NaiveDateTime.compare(datetime, datetime_noon) do
+      :lt -> true
+      _ -> false
+    end
   end
 
   def return_date(checkout_datetime) do
