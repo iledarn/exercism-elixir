@@ -43,6 +43,26 @@ defmodule LibraryFees do
   end
 
   def calculate_late_fee(checkout, return, rate) do
-    # Please implement the calculate_late_fee/3 function
+    planned_return_date =
+      checkout
+      |> datetime_from_string()
+      |> return_date()
+
+    actural_return_datetime =
+      return
+      |> datetime_from_string()
+
+    late = days_late(planned_return_date, actural_return_datetime)
+
+    case late > 0 do
+      true ->
+        case monday?(actural_return_datetime) do
+          true -> late * rate / 2 |> trunc()
+          false -> late * rate |> trunc()
+        end
+
+      false ->
+        0
+    end
   end
 end
