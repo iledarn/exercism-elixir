@@ -14,7 +14,7 @@ defmodule BoutiqueInventory do
   end
 
   def increase_quantity(item, count) do
-    # Please implement the increase_quantity/2 function
+    %{item | quantity_by_size: Map.new(item.quantity_by_size, &({elem(&1, 0), elem(&1, 1) + count}))}
   end
 
   def total_quantity(item) do
