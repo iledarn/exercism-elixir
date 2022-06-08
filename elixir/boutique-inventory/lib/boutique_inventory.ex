@@ -9,7 +9,7 @@ defmodule BoutiqueInventory do
 
   def update_names(inventory, old_word, new_word) do
     Enum.map(inventory, fn x ->
-      %{x | name: Regex.replace(Regex.compile!(old_word), x.name, new_word)}
+      %{x | name: String.replace(x.name, old_word, new_word)}
     end)
   end
 
