@@ -1,10 +1,10 @@
 defmodule BoutiqueInventory do
   def sort_by_price(inventory) do
-    # Please implement the sort_by_price/1 function
+    Enum.sort(inventory, &(&1.price <= &2.price))
   end
 
   def with_missing_price(inventory) do
-    # Please implement the with_missing_price/1 function
+    Enum.filter(inventory, &(&1.price === nil))
   end
 
   def update_names(inventory, old_word, new_word) do
