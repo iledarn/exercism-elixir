@@ -8,7 +8,9 @@ defmodule BoutiqueInventory do
   end
 
   def update_names(inventory, old_word, new_word) do
-    # Please implement the update_names/3 function
+    Enum.map(inventory, fn x ->
+      %{x | name: Regex.replace(Regex.compile!(old_word), x.name, new_word)}
+    end)
   end
 
   def increase_quantity(item, count) do
