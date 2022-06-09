@@ -20,6 +20,14 @@ defmodule Newsletter do
   end
 
   def send_newsletter(emails_path, log_path, send_fun) do
-    # Please implement the send_newsletter/3 function
+    log_file = open_log(log_path)
+
+    for email <- read_emails(emails_path) do
+      if send_fun.(email) == :ok do
+        log_sent_email(log_file, email)
+      end
+    end
+
+    close_log(log_file)
   end
 end
