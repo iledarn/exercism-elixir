@@ -1,6 +1,9 @@
 defmodule Newsletter do
   def read_emails(path) do
-    # Please implement the read_emails/1 function
+    case File.read(path) do
+      {:ok, body} -> String.split(body)
+      {:error, reason} -> reason
+    end
   end
 
   def open_log(path) do
