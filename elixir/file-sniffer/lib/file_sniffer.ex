@@ -1,6 +1,13 @@
 defmodule FileSniffer do
   def type_from_extension(extension) do
-    # Please implement the type_from_extension/1 function
+    case extension do
+      "exe" -> "application/octet-stream"
+      "bmp" -> "image/bmp"
+      "png" -> "image/png"
+      "jpg" -> "image/jpg"
+      "gif" -> "image/gif"
+      _ -> nil
+    end
   end
 
   def type_from_binary(file_binary) do
