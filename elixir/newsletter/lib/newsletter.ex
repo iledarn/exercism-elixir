@@ -7,7 +7,8 @@ defmodule Newsletter do
   end
 
   def open_log(path) do
-    # Please implement the open_log/1 function
+    {:ok, file} = File.open(path, [:write])
+    file
   end
 
   def log_sent_email(pid, email) do
