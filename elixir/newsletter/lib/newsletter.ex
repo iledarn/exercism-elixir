@@ -12,7 +12,7 @@ defmodule Newsletter do
   end
 
   def log_sent_email(pid, email) do
-    # Please implement the log_sent_email/2 function
+    IO.binwrite(pid, email <> "\n")
   end
 
   def close_log(pid) do
