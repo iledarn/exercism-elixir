@@ -15,8 +15,12 @@ defmodule RemoteControlCar do
     to_string(distance) <> " meters"
   end
 
-  def display_battery(remote_car) do
-    # Please implement the display_battery/1 function
+  def display_battery(%RemoteControlCar{battery_percentage: 0}) do
+    "Battery empty"
+  end
+
+  def display_battery(%RemoteControlCar{battery_percentage: battery}) do
+    "Battery at #{battery}%"
   end
 
   def drive(remote_car) do
