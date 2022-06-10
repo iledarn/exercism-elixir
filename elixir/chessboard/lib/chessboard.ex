@@ -12,6 +12,7 @@ defmodule Chessboard do
   end
 
   def files do
-    # Please implement the files/0 function
+    Enum.to_list(file_range())
+    |> Enum.map(&(to_string([&1])))
   end
 end
