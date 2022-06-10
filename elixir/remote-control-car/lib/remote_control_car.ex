@@ -11,8 +11,8 @@ defmodule RemoteControlCar do
     %RemoteControlCar{nickname: nickname}
   end
 
-  def display_distance(remote_car) do
-    # Please implement the display_distance/1 function
+  def display_distance(%RemoteControlCar{} = remote_car) do
+    to_string(remote_car.distance_driven_in_meters) <> " meters"
   end
 
   def display_battery(remote_car) do
