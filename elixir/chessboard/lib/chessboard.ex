@@ -13,6 +13,6 @@ defmodule Chessboard do
 
   def files do
     Enum.to_list(file_range())
-    |> Enum.map(&(to_string([&1])))
+    |> Enum.map(&(<<&1>>))
   end
 end
