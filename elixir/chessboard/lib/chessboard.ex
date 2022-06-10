@@ -4,11 +4,11 @@ defmodule Chessboard do
   end
 
   def file_range do
-    # Please implement the file_range/0 function
+    ?A..?H
   end
 
   def ranks do
-    # Please implement the ranks/0 function
+    Enum.to_list(rank_range())
   end
 
   def files do
