@@ -1,13 +1,8 @@
 defmodule RemoteControlCar do
-  # Please implement the struct with the specified fields
   @enforce_keys [:nickname]
   defstruct [:nickname, battery_percentage: 100, distance_driven_in_meters: 0]
 
-  def new() do
-    %RemoteControlCar{nickname: "none"}
-  end
-
-  def new(nickname) do
+  def new(nickname \\ "none") do
     %RemoteControlCar{nickname: nickname}
   end
 
